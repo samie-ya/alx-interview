@@ -4,16 +4,13 @@
 
 def minOperations(n):
     """This function will find the minimum copy and paste"""
-    H = 1
-    carry = 0
     cp = 0
-    while (H < n):
-        rest = n - H
-        if (rest % H == 0):
-            carry = H
-            H += carry
-            cp += 2
-        else:
-            H += carry
-            cp += 1
+    # This function will find highest factor
+    for i in range(n - 1, 0, -1):
+        if (n % i == 0):
+            # if factor is found add the divided value of
+            # n and factor to Copy Paste
+            cp += int(n / i)
+            # new n will be the highest factor
+            n = i
     return cp
