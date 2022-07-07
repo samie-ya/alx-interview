@@ -33,3 +33,8 @@ except KeyboardInterrupt:
     for key, value in dic.items():
         if (value != 0):
             print("{}: {}".format(key, value))
+else:
+    print("File size: {}".format(file_counter))
+    for key, value in dic.items():
+        if (value != 0):
+            print("{}: {}".format(key, value))
