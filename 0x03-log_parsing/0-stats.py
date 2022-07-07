@@ -1,6 +1,21 @@
 #!/usr/bin/python3
 """This script will deal with output of stats"""
 import sys
+from datetime import datetime
+
+
+def validate_ip(s):
+    a = s.split('.')
+    if len(a) != 4:
+        return False
+    for x in a:
+        if not x.isdigit():
+            return False
+        i = int(x)
+        if i < 0 or i > 255:
+            return False
+    return True
+
 
 line_counter = 0
 file_counter = 0
@@ -10,12 +25,15 @@ try:
     for line in sys.stdin:
         line_counter += 1
         sub = line.split(" ")
-        get = sub[4].split('"')[1]
-        two_60 = sub[5].split("/")[2]
-        http = sub[6].split("/")[0]
-        if (sub[1] == "-") and (get == "GET") and \
-           (two_60 == "260") and (http == "HTTP") and \
-           (sub[7] in dic.keys()):
+        combo = sub[2] + sub[3]
+        combo_with_no_bracet = combo[1: -1]
+        date = datetime.strptime(combo_with_no_bracet, "%Y-%m-%d%H:%M:%S.%f")
+        method = sub[4] + " " + sub[5] + " " + sub[6]
+        size = sub[8].split("\n")[0]
+        if (validate_ip(sub[0])) and (sub[1] == "-") and \
+           (isinstance(date, datetime)) and \
+           (method == "\"GET /projects/260 HTTP/1.1\"") and \
+           (sub[7] in dic.keys()) and size.isnumeric():
             status = sub[7]
             if status in dic.keys():
                 dic[status] += 1
