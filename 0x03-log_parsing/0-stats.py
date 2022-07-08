@@ -44,7 +44,7 @@ try:
                 file_counter += int(file_size)
                 if (line_counter % 10 == 0):
                     print("File size: {}".format(file_counter))
-                    for key, value in dic.items():
+                    for key, value in sorted(dic.items()):
                         if (value != 0):
                             print("{}: {}".format(key, value))
             else:
@@ -53,11 +53,11 @@ try:
             continue
 except KeyboardInterrupt:
     print("File size: {}".format(file_counter))
-    for key, value in dic.items():
+    for key, value in sorted(dic.items()):
         if (value != 0):
             print("{}: {}".format(key, value))
 else:
     print("File size: {}".format(file_counter))
-    for key, value in dic.items():
+    for key, value in sorted(dic.items()):
         if (value != 0):
             print("{}: {}".format(key, value))
