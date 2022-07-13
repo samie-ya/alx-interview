@@ -21,4 +21,4 @@ def validUTF8(data):
                 return False
     elif (num_byte >= 5 or num_byte == 1):
         return False
-    return
+    return True
