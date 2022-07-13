@@ -15,7 +15,7 @@ def validUTF8(data):
         return False
     elif (num_bytes > 1 or num_bytes <= 4):
         for i in range(1, num_bytes):
-            new_bits = format(data[1], '#010b')[-8:]
+            new_bits = format(data[i], '#010b')[-8:]
             if not (new_bits[0] == '1' and new_bits[1] == '0'):
                 return False
     return True
