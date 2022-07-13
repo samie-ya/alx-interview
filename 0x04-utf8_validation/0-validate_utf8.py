@@ -4,7 +4,7 @@
 
 def validUTF8(data):
     """This script will return true if given list is a valid UTF-8"""
-    num_byte = 0
+    num_byte = 1
     bits = format(data[0], '08b')
     for bit in bits:
         if bit[0] == '0':
