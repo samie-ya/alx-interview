@@ -18,4 +18,6 @@ def validUTF8(data):
             bits = format(data[i], '08b')
             if (bits[0] != '1' and bits[1] != '0'):
                 return False
+    elif (num_byte >= 5):
+        return False
     return True
