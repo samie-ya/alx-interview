@@ -4,14 +4,14 @@
 
 def validUTF8(data):
     """This script will return true if given list is a valid UTF-8"""
-    n_byte = 0
+    n_bytes = 0
     for num in data:
         bin_rep = format(num, '#010b')[-8:]
         if n_bytes == 0:
             for bit in bin_rep:
                 if bit == '0':
                     break
-                n_byte += 1
+                n_bytes += 1
             if n_bytes == 0:
                 continue
             if n_bytes == 1 or n_bytes > 4:
