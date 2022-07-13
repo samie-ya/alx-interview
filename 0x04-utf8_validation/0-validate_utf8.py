@@ -4,18 +4,20 @@
 
 def validUTF8(data):
     """This script will return true if given list is a valid UTF-8"""
-    num_byte = 0
-    bits = format(data[0], '#010b')[-8:]
-    for bit in bits:
-        if bit == '0':
-            break
-        else:
-            num_byte += 1
-    if (num_byte > 1 and num_byte <= 4):
-        for i in range(1, num_byte):
-            bits = format(data[i], '#010b')[-8:]
-            if not (bits[0] == '1' and bits[1] == '0'):
+    n_byte = 0
+    for num in data:
+        bin_rep = format(num, '#010b')[-8:]
+        if n_bytes == 0:
+            for bit in bin_rep:
+                if bit == '0':
+                    break
+                n_byte += 1
+            if n_bytes == 0:
+                continue
+            if n_bytes == 1 or n_bytes > 4:
                 return False
-    elif (num_byte > 5 or num_byte == 1):
-        return False
-    return True
+        else:
+            if not (bin_rep[0] == '1' and bin_rep[1] == '0'):
+                return False
+        n_bytes -= 1
+    return n_bytes == 0
