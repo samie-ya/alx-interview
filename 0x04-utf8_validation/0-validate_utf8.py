@@ -7,7 +7,7 @@ def validUTF8(data):
     num_byte = 0
     bits = format(data[0], '08b')
     for bit in bits:
-        if bit[0] == '0':
+        if bits[0] == '0':
             break
         else:
             if bit != '0':
