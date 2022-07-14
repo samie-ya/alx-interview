@@ -6,7 +6,7 @@ def validUTF8(data):
     """This script will return true if given list is a valid UTF-8"""
     num_bytes = 0
     for i in range(len(data)):
-        bits = format(data[i], '08b')
+        bits = format(data[i], '#010b')[-8:]
         if bits[0] == '0':
             continue
         else:
@@ -23,7 +23,7 @@ def validUTF8(data):
                 if (after_byte > len(data) or last_byte > len(data)):
                     return False
                 for j in range(after_byte, last_byte):
-                    new_bits = format(data[j], '08b')
+                    new_bits = format(data[j], '#010b')[-8:]
                     if not (new_bits[0] == '1' and new_bits[1] == '0'):
                         return False
                     else:
