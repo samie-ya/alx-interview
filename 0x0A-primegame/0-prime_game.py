@@ -6,13 +6,13 @@ def isWinner(x, nums):
     """This function will let Maria and Ben play"""
     Maria = 0
     Ben = 0
-    for number in nums:
+    for i in range(x):
         maria = 0
         ben = 0
-        if (number == 1):
+        if (nums[i] == 1):
             ben += 1
         else:
-            for num in range(number + 1):
+            for num in range(nums[i] + 1):
                 if num > 1:
                     for i in range(2, num):
                         if (num % i == 0):
