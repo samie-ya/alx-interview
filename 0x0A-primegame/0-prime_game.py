@@ -35,7 +35,7 @@ def isWinner(x, nums):
                 elif (maria > ben):
                     ben += 1
                 else:
-                    ben += 1
+                    maria += 1
                 for i in allNum:
                     if (i % j == 0):
                         allNum.remove(i)
